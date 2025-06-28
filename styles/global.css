@@ -1,0 +1,17 @@
+/* styles/global.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import './theme.css'; /* Import theme variables */
+@import './typography.css'; /* Import typography styles */
+
+body {
+  /* Base body styles if not covered by typography.css or Tailwind defaults */
+  @apply bg-primary-dark-blue-gray text-secondary-white; /* Example using theme colors */
+  margin: 0;
+  font-family: 'Roboto', sans-serif; /* Ensure Roboto is the base font */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Additional global styles can be added here */

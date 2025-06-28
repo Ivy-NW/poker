@@ -1,0 +1,22 @@
+/* styles/theme.css */
+:root {
+  --primary-gold: #FFC700;              /* Gold/Yellow - Represents value, rewards, and growth */
+  --primary-dark-blue-gray: #1E293B;   /* Dark Blue/Gray - Background color for contrast and readability */
+
+  --secondary-white: #FFFFFF;           /* White - Text and highlights */
+  --secondary-light-blue: #818CF8;      /* Light Blue - Accents for buttons and interactive elements */
+
+  --neutral-light-gray: #F3F4F6;        /* Light Gray - Subtle backgrounds and separators */
+  --neutral-very-light-gray: #E2E8F0;   /* Very Light Gray - Shadows and hover effects */
+
+  /* Mapping to TailwindCSS color names for easier use in components if needed,
+     or direct usage via var(--primary-gold) */
+}
+
+/* Example of using these variables with Tailwind's @apply if you extend themes */
+/* This is more typically done in tailwind.config.js, but shown here for clarity */
+/*
+.example-usage {
+  @apply bg-primary-dark-blue-gray text-primary-gold;
+}
+*/

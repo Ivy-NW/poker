@@ -1,0 +1,93 @@
+/* styles/typography.css */
+
+/* Ensure Google Fonts are imported - typically in _app.tsx or a global CSS file if not using Tailwind's font handling */
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); */
+/* This import is often better placed in _app.tsx or a layout component to ensure it's loaded globally.
+   For now, assuming Tailwind config will handle font family or it's imported elsewhere. */
+
+body {
+  font-family: 'Roboto', sans-serif; /* Default body font */
+  font-weight: 400; /* Regular */
+  /* Base text color can be set here or in global.css */
+  /* color: var(--secondary-white); */
+}
+
+h1, .h1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700; /* Bold */
+  /* Add specific heading sizes if not using Tailwind's typography plugin or default sizes */
+  /* Example:
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+  */
+}
+
+h2, .h2 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700; /* Bold */
+  /* font-size: 2rem; */
+}
+
+h3, .h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700; /* Bold */
+  /* font-size: 1.75rem; */
+}
+
+h4, .h4 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700; /* Bold */
+  /* font-size: 1.5rem; */
+}
+
+h5, .h5 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700; /* Bold */
+  /* font-size: 1.25rem; */
+}
+
+h6, .h6 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700; /* Bold */
+  /* font-size: 1rem; */
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400; /* Regular */
+  /* margin-bottom: 1em; */
+}
+
+a {
+  /* color: var(--secondary-light-blue); */ /* Example link color */
+  /* text-decoration: none; */
+}
+
+/* a:hover {
+  text-decoration: underline;
+} */
+
+code, pre {
+  font-family: 'Courier New', Courier, monospace; /* Monospace for code blocks */
+  /* background-color: var(--neutral-light-gray); */
+  /* color: var(--primary-dark-blue-gray); */
+  /* padding: 0.2em 0.4em; */
+  /* border-radius: 3px; */
+}
+
+pre {
+  /* padding: 1em; */
+  /* overflow-x: auto; */
+}
+
+/* Utility classes for font weights if needed, though Tailwind provides these */
+.font-roboto-regular {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+.font-roboto-bold {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
