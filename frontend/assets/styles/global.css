@@ -1,0 +1,372 @@
+/* frontend/assets/styles/global.css */
+
+/* Reset some default browser styles */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, figcaption, blockquote, dl, dd {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', 'Lato', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Define color variables for themes */
+:root {
+  --primary-dark: #1E1E1E;
+  --primary-light-gray: #F5F5F5;
+  --accent-blue: #4A90E2;
+  --highlight-gold: #FFD700;
+  --error-red: #FF6B6B;
+  --success-green: #2ECC71;
+  --text-on-dark: #FFFFFF;
+  --text-on-light: #333333;
+
+  /* Default theme (dark) */
+  --background-primary: var(--primary-dark);
+  --background-secondary: #2a2a2a; /* Slightly lighter for cards/modals on dark */
+  --text-primary: var(--text-on-dark);
+  --text-secondary: #a0a0a0;
+  --border-color: #444;
+  --button-bg: var(--accent-blue);
+  --button-text: var(--text-on-dark);
+  --card-bg: #2c3e50; /* Darker card background for contrast */
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Light theme variables (can be toggled with a class on body or html) */
+[data-theme="light"] {
+  --background-primary: var(--primary-light-gray);
+  --background-secondary: #ffffff; /* White for cards/modals on light */
+  --text-primary: var(--text-on-light);
+  --text-secondary: #555;
+  --border-color: #ddd;
+  --button-bg: var(--accent-blue);
+  --button-text: var(--text-on-dark);
+  --card-bg: #ffffff;
+  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', 'Roboto', 'Montserrat', sans-serif;
+  margin-bottom: 0.5em;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+h1 { font-size: 24px; } /* Adjusted from original spec for better hierarchy */
+h2 { font-size: 20px; }
+h3 { font-size: 18px; }
+
+p {
+  margin-bottom: 1em;
+}
+
+a {
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Basic Layout for App.js example */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+}
+
+.App-header {
+  background-color: #282c34; /* Kept from default CRA for now, can be themed */
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+.App-header nav {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.App-header nav button {
+  margin: 0 10px;
+}
+
+.wallet-connector {
+  margin-top: 10px;
+}
+
+.wallet-connector p {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 0.9em;
+}
+
+main {
+  flex-grow: 1;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.connect-prompt {
+  text-align: center;
+  font-size: 1.2em;
+  color: var(--text-secondary);
+  margin-top: 50px;
+}
+
+footer {
+  background-color: #20232a; /* Kept from default CRA for now, can be themed */
+  padding: 10px;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.9em;
+}
+
+/* UI Components Styling */
+button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px; /* Rounded corners */
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+}
+
+button:hover {
+  background-color: #3a7bc8; /* Darker shade of accent-blue */
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0px);
+}
+
+button:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+textarea {
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+  width: calc(100% - 22px); /* Account for padding and border */
+  margin-bottom: 10px;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.3);
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Cards */
+.card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 20px;
+}
+
+/* Modals - Basic structure, more detailed styling might be needed */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Transparent overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: var(--background-secondary);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  min-width: 300px;
+  max-width: 90%;
+  z-index: 1001;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  background-color: var(--card-bg); /* Use card background for tables */
+  color: var(--text-primary);
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  background-color: var(--background-secondary); /* Slightly different for header */
+  font-weight: bold;
+}
+
+tbody tr:hover {
+  background-color: rgba(74, 144, 226, 0.1); /* Light blue hover for rows */
+}
+
+/* Icon styling (placeholder, depends on how icons are implemented e.g., SVG, font icons) */
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  /* fill: currentColor; */ /* For SVGs that inherit color */
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 1rem; }
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 1rem; }
+/* Add more utilities as needed */
+
+/* Specific component styles can go into their respective CSS Modules or styled-components */
+
+/* Example: Styling for components if not using CSS Modules */
+/* In ArtistDashboard.js, InvestorDashboard.js, etc. you might have divs with these class names */
+/*
+.artist-dashboard, .investor-dashboard, .nft-minting, .staking-dashboard, .royalty-distribution, .analytics {
+  padding: 20px;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 20px;
+}
+
+.artist-dashboard h2, .investor-dashboard h2, .nft-minting h3, .staking-dashboard h3, .royalty-distribution h3, .analytics h3 {
+  margin-top: 0;
+  color: var(--accent-blue);
+}
+*/
+
+/* Styles for specific component elements like tables, lists within components */
+/* For NFTMinting.js form */
+/* frontend/src/components/NFTMinting.js specific styles could be here or in a separate file */
+/*
+.nft-minting div {
+  margin-bottom: 15px;
+}
+
+.nft-minting label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.nft-minting input[type="text"],
+.nft-minting input[type="number"] {
+  width: calc(100% - 22px);
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+}
+
+.nft-minting button {
+  margin-top: 10px;
+}
+*/
+
+/* Styles for StakingDashboard.js form */
+/*
+.staking-dashboard div {
+  margin-bottom: 15px;
+}
+
+.staking-dashboard label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.staking-dashboard input[type="text"],
+.staking-dashboard input[type="number"] {
+  width: calc(100% - 22px);
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+}
+
+.staking-dashboard button {
+  margin-right: 10px;
+}
+
+.staking-dashboard button:last-child {
+  margin-right: 0;
+}
+*/
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  h1 { font-size: 20px; }
+  h2 { font-size: 18px; }
+  h3 { font-size: 16px; }
+  body { font-size: 14px; }
+  .App-header nav button {
+    display: block;
+    margin: 5px auto;
+  }
+}
+
+/* Tailwind CSS base styles (if using Tailwind, this would be handled by Tailwind itself) */
+/* For a non-Tailwind setup, these are good defaults */
+*, ::before, ::after {
+  box-sizing: border-box; /* 1 */
+  border-width: 0; /* 2 */
+  border-style: solid; /* 2 */
+  border-color: currentColor; /* 2 */
+}
+
+::before, ::after {
+  --tw-content: '';
+}

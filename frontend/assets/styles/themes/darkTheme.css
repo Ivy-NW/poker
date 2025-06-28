@@ -1,0 +1,45 @@
+/* frontend/assets/styles/themes/darkTheme.css */
+
+/* This file can be used if you prefer to separate theme variables into different files.
+   The current setup in global.css uses CSS variables and a data-theme attribute,
+   which is a common and effective way to handle theming. The dark theme is default there.
+
+   If you were to use this file to define the dark theme (perhaps if light was default),
+   you'd typically define the dark theme variables here.
+
+   Example content if this file were actively used to define the dark theme:
+*/
+
+/*
+:root {
+  --background-primary: #1E1E1E;
+  --background-secondary: #2a2a2a;
+  --text-primary: #FFFFFF;
+  --text-secondary: #a0a0a0;
+  --border-color: #444444;
+  --card-bg: #2c3e50;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  --accent-blue: #4A90E2;
+  --highlight-gold: #FFD700;
+  --error-red: #FF6B6B;
+  --success-green: #2ECC71;
+  --button-text: #FFFFFF;
+}
+*/
+
+/* Since global.css already handles theming with :root (defaulting to dark)
+   and provides a [data-theme="light"] selector for the light theme,
+   this file can remain empty or be used for more specific dark theme overrides
+   that are not easily covered by just variable changes in :root. */
+
+/* For example, if certain components need structurally different styles specifically in dark mode: */
+/*
+body[data-theme="dark"] .some-specific-component-dark-override,
+:root .some-specific-component-dark-override {
+    border: 1px solid var(--highlight-gold);
+}
+*/
+
+/* As of now, this file is not strictly necessary due to the theming approach in global.css
+   where dark theme is the default. It's included to match the requested file structure. */

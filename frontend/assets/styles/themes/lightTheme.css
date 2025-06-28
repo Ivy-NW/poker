@@ -1,0 +1,43 @@
+/* frontend/assets/styles/themes/lightTheme.css */
+
+/* This file can be used if you prefer to separate theme variables into different files.
+   However, the current setup in global.css uses CSS variables and a data-theme attribute,
+   which is a common and effective way to handle theming.
+
+   If you were to use this file, you'd typically define the light theme variables here
+   and import this file conditionally or use a CSS preprocessor to switch themes.
+
+   Example content if this file were actively used to override variables:
+*/
+
+/*
+:root {
+  --background-primary: #F5F5F5;
+  --background-secondary: #ffffff;
+  --text-primary: #333333;
+  --text-secondary: #555555;
+  --border-color: #dddddd;
+  --card-bg: #ffffff;
+  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  --accent-blue: #4A90E2;
+  --highlight-gold: #FFD700;
+  --error-red: #FF6B6B;
+  --success-green: #2ECC71;
+  --button-text: #FFFFFF; / Text on blue button /
+}
+*/
+
+/* Since global.css already handles theming with [data-theme="light"],
+   this file can remain empty or be used for more specific light theme overrides
+   that are not easily covered by just variable changes. */
+
+/* For example, if certain components need structurally different styles in light mode: */
+/*
+body[data-theme="light"] .some-specific-component {
+    border: 1px solid var(--accent-blue);
+}
+*/
+
+/* As of now, this file is not strictly necessary due to the theming approach in global.css */
+/* It's included to match the requested file structure. */

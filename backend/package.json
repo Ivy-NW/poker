@@ -1,0 +1,28 @@
+{
+  "name": "stake-to-earn-music-backend",
+  "version": "1.0.0",
+  "description": "Backend services for the Stake-to-Earn Music Platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "vercel dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ethers": "^5.7.2", // For interacting with Ethereum blockchain (Avalanche is EVM compatible)
+    "supabase-js": "^2.x.x", // For Supabase database interaction (replace x.x with latest)
+    // Add other backend dependencies as needed, e.g., for specific APIs
+    // "axios": "^1.x.x" // For making HTTP requests to external APIs like Viberate
+    // "cors": "^2.8.5", // If running a traditional Express server locally
+    // "express": "^4.17.1" // If running a traditional Express server locally
+  },
+  "devDependencies": {
+    "vercel": "^30.x.x" // Or latest Vercel CLI version
+    // "nodemon": "^2.0.15" // For local development with Node.js server
+  },
+  "author": "Your Name/Company",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18.x" // Specify Node.js version compatible with Vercel
+  }
+}
