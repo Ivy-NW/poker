@@ -73,74 +73,78 @@ const DashboardPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#1E293B] py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-8 parallax-container">
+      <div className="parallax-bg"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white mb-2">Dashboard</h1>
-          <p className="text-gray-400">Track your music investments and earnings</p>
+        <div className="mb-8 text-center">
+          <h1 className="text-4xl font-royal-bold text-royal-gold mb-4 text-luxury">
+            Royal Dashboard
+          </h1>
+          <p className="text-gray-300 font-elegant text-lg">Track your music investments and earnings with royal precision</p>
+          <div className="royal-divider"></div>
         </div>
 
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <div className="bg-[#0F172A] rounded-xl p-6 border border-[#FFC700]/20">
+          <div className="glass-premium hover-lift card-entrance">
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-[#FFC700]/10 rounded-lg flex items-center justify-center">
-                <CurrencyDollarIcon className="w-6 h-6 text-[#FFC700]" />
+              <div className="poker-chip w-14 h-14 flex items-center justify-center">
+                <CurrencyDollarIcon className="w-7 h-7 text-black" />
               </div>
               <div className="text-right">
-                <div className="text-2xl font-bold text-white">{formatCurrency(mockUserData.portfolioValue)}</div>
-                <div className="text-sm text-gray-400">Portfolio Value</div>
+                <div className="text-2xl font-royal-bold text-royal-gold">{formatCurrency(mockUserData.portfolioValue)}</div>
+                <div className="text-sm text-gray-300 font-elegant">Portfolio Value</div>
               </div>
             </div>
-            <div className="flex items-center text-green-400 text-sm">
+            <div className="flex items-center text-green-400 text-sm font-elegant">
               <ArrowTrendingUpIcon className="w-4 h-4 mr-1" />
               +13.6% this month
             </div>
           </div>
 
-          <div className="bg-[#0F172A] rounded-xl p-6 border border-[#FFC700]/20">
+          <div className="glass-premium hover-lift card-entrance">
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-[#FFC700]/10 rounded-lg flex items-center justify-center">
-                  <ArrowTrendingUpIcon className="w-6 h-6 text-[#FFC700]" />
-                </div>
+              <div className="poker-chip w-14 h-14 flex items-center justify-center">
+                <ArrowTrendingUpIcon className="w-7 h-7 text-black" />
+              </div>
               <div className="text-right">
-                <div className="text-2xl font-bold text-white">{formatCurrency(mockUserData.totalEarnings)}</div>
-                <div className="text-sm text-gray-400">Total Earnings</div>
+                <div className="text-2xl font-royal-bold text-royal-gold">{formatCurrency(mockUserData.totalEarnings)}</div>
+                <div className="text-sm text-gray-300 font-elegant">Total Earnings</div>
               </div>
             </div>
-            <div className="flex items-center text-green-400 text-sm">
+            <div className="flex items-center text-green-400 text-sm font-elegant">
               <ArrowTrendingUpIcon className="w-4 h-4 mr-1" />
               +{formatCurrency(mockUserData.monthlyReturn)} this month
             </div>
           </div>
 
-          <div className="bg-[#0F172A] rounded-xl p-6 border border-[#FFC700]/20">
+          <div className="glass-premium hover-lift card-entrance">
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-[#FFC700]/10 rounded-lg flex items-center justify-center">
-                <ChartBarIcon className="w-6 h-6 text-[#FFC700]" />
+              <div className="poker-chip w-14 h-14 flex items-center justify-center">
+                <ChartBarIcon className="w-7 h-7 text-black" />
               </div>
               <div className="text-right">
-                <div className="text-2xl font-bold text-white">{mockUserData.activeStakes}</div>
-                <div className="text-sm text-gray-400">Active Stakes</div>
+                <div className="text-2xl font-royal-bold text-royal-gold">{mockUserData.activeStakes}</div>
+                <div className="text-sm text-gray-300 font-elegant">Active Stakes</div>
               </div>
             </div>
-            <div className="text-sm text-gray-400">
+            <div className="text-sm text-gray-300 font-elegant">
               Across {mockUserData.totalArtists} artists
             </div>
           </div>
 
-          <div className="bg-[#0F172A] rounded-xl p-6 border border-[#FFC700]/20">
+          <div className="glass-premium hover-lift card-entrance">
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-[#FFC700]/10 rounded-lg flex items-center justify-center">
-                <UserGroupIcon className="w-6 h-6 text-[#FFC700]" />
+              <div className="poker-chip w-14 h-14 flex items-center justify-center">
+                <UserGroupIcon className="w-7 h-7 text-black" />
               </div>
               <div className="text-right">
-                <div className="text-2xl font-bold text-white">{formatCurrency(mockUserData.totalInvested)}</div>
-                <div className="text-sm text-gray-400">Total Invested</div>
+                <div className="text-2xl font-royal-bold text-royal-gold">{formatCurrency(mockUserData.totalInvested)}</div>
+                <div className="text-sm text-gray-300 font-elegant">Total Invested</div>
               </div>
             </div>
-            <div className="text-sm text-gray-400">
+            <div className="text-sm text-gray-300 font-elegant">
               ROI: +{((mockUserData.totalEarnings / mockUserData.totalInvested) * 100).toFixed(1)}%
             </div>
           </div>
@@ -149,62 +153,61 @@ const DashboardPage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Portfolio */}
           <div className="lg:col-span-2">
-            <div className="bg-[#0F172A] rounded-xl p-6 border border-[#FFC700]/20">
-              <h2 className="text-xl font-semibold text-white mb-6">Your Stakes</h2>
+            <div className="glass-royal p-8 hover-lift">
+              <h2 className="text-2xl font-royal-bold text-royal-gold mb-6 text-luxury">Your Royal Stakes</h2>
               <div className="space-y-4">
                 {mockStakes.map((stake) => {
                   const ChangeIcon = getChangeIcon(stake.change);
                   return (
-                    <div key={stake.id} className="bg-[#1E293B] rounded-lg p-4">
-                      <div className="flex items-center justify-between mb-3">
+                    <div key={stake.id} className="card-luxury p-6 hover-glow">
+                      <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center">
-                          <div className="w-12 h-12 bg-gradient-to-br from-[#FFC700]/20 to-[#818CF8]/20 rounded-lg flex items-center justify-center mr-4">
-                            <PlayIcon className="w-6 h-6 text-[#FFC700]" />
+                          <div className="poker-chip w-16 h-16 flex items-center justify-center mr-4">
+                            <PlayIcon className="w-8 h-8 text-black" />
                           </div>
                           <div>
-                            <h3 className="text-white font-semibold">{stake.artistName}</h3>
-                            <p className="text-gray-400 text-sm">{stake.genre}</p>
+                            <h3 className="text-white font-royal font-semibold text-lg">{stake.artistName}</h3>
+                            <p className="text-gray-300 text-sm font-elegant">{stake.genre}</p>
                           </div>
                         </div>
                         <div className="flex items-center">
-                          <StarIcon className="w-4 h-4 text-[#FFC700] mr-1" />
-                          <span className="text-sm text-gray-300">{stake.rating}</span>
+                          <StarIcon className="w-5 h-5 text-[#FFC700] mr-1" />
+                          <span className="text-sm text-gray-200 font-elegant">{stake.rating}</span>
                         </div>
                       </div>
 
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <div>
-                          <div className="text-gray-400 text-xs mb-1">Staked</div>
-                          <div className="text-white font-medium">{formatCurrency(stake.stakeAmount)}</div>
+                        <div className="glass-card p-3">
+                          <div className="text-gray-300 text-xs mb-1 font-elegant">Staked</div>
+                          <div className="text-white font-royal font-medium">{formatCurrency(stake.stakeAmount)}</div>
                         </div>
-                        <div>
-                          <div className="text-gray-400 text-xs mb-1">Current Value</div>
-                          <div className="text-white font-medium">{formatCurrency(stake.currentValue)}</div>
+                        <div className="glass-card p-3">
+                          <div className="text-gray-300 text-xs mb-1 font-elegant">Current Value</div>
+                          <div className="text-white font-royal font-medium">{formatCurrency(stake.currentValue)}</div>
                         </div>
-                        <div>
-                          <div className="text-gray-400 text-xs mb-1">Monthly Earnings</div>
-                          <div className="text-[#FFC700] font-medium">{formatCurrency(stake.monthlyEarnings)}</div>
+                        <div className="glass-card p-3">
+                          <div className="text-gray-300 text-xs mb-1 font-elegant">Monthly Earnings</div>
+                          <div className="text-[#FFC700] font-royal font-medium">{formatCurrency(stake.monthlyEarnings)}</div>
                         </div>
-                        <div>
-                          <div className="text-gray-400 text-xs mb-1">Change</div>
-                          <div className={`font-medium flex items-center ${getChangeColor(stake.change)}`}>
+                        <div className="glass-card p-3">
+                          <div className="text-gray-300 text-xs mb-1 font-elegant">Change</div>
+                          <div className={`font-royal font-medium flex items-center ${getChangeColor(stake.change)}`}>
                             <ChangeIcon className="w-4 h-4 mr-1" />
                             +{stake.change}%
                           </div>
                         </div>
                       </div>
 
-                      <div className="mt-3 pt-3 border-t border-[#FFC700]/20">
-                        <div className="flex justify-between items-center">
-                          <span className="text-gray-400 text-sm">Shares: {stake.shares.toLocaleString()}</span>
-                          <div className="flex space-x-2">
-                            <button className="text-[#FFC700] hover:text-[#e6b300] text-sm transition-colors duration-200">
-                              Add More
-                            </button>
-                            <button className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
-                              Withdraw
-                            </button>
-                          </div>
+                      <div className="royal-divider"></div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-300 text-sm font-elegant">Shares: {stake.shares.toLocaleString()}</span>
+                        <div className="flex space-x-3">
+                          <button className="btn-royal-outline px-4 py-2 text-sm">
+                            Add More
+                          </button>
+                          <button className="text-gray-400 hover:text-white text-sm transition-colors duration-200 font-elegant">
+                            Withdraw
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -217,42 +220,44 @@ const DashboardPage = () => {
           {/* Recent Activity & Quick Actions */}
           <div className="space-y-6">
             {/* Quick Actions */}
-            <div className="bg-[#0F172A] rounded-xl p-6 border border-[#FFC700]/20">
-              <h3 className="text-lg font-semibold text-white mb-4">Quick Actions</h3>
-              <div className="space-y-3">
-                <button className="w-full bg-[#FFC700] text-[#1E293B] py-3 rounded-lg font-medium hover:bg-[#e6b300] transition-colors duration-200">
+            <div className="glass-royal p-6 hover-lift">
+              <h3 className="text-xl font-royal-bold text-royal-gold mb-6 text-luxury">Royal Actions</h3>
+              <div className="space-y-4">
+                <button className="w-full btn-royal py-3 font-royal">
                   Explore New Artists
                 </button>
-                <button className="w-full border border-[#FFC700] text-[#FFC700] py-3 rounded-lg font-medium hover:bg-[#FFC700] hover:text-[#1E293B] transition-colors duration-200">
+                <button className="w-full btn-royal-outline py-3 font-royal">
                   Claim Earnings
                 </button>
-                <button className="w-full bg-[#1E293B] text-white py-3 rounded-lg font-medium hover:bg-[#334155] transition-colors duration-200">
+                <button className="w-full glass-premium text-white py-3 rounded-lg font-royal font-medium hover:bg-[#334155] transition-colors duration-200 border border-[#FFC700]/30">
                   View Marketplace
                 </button>
               </div>
             </div>
 
             {/* Recent Activity */}
-            <div className="bg-[#0F172A] rounded-xl p-6 border border-[#FFC700]/20">
-              <h3 className="text-lg font-semibold text-white mb-4">Recent Activity</h3>
-              <div className="space-y-3">
+            <div className="glass-royal p-6 hover-lift">
+              <h3 className="text-xl font-royal-bold text-royal-gold mb-6 text-luxury">Royal Activity</h3>
+              <div className="space-y-4">
                 {mockRecentActivity.map((activity, index) => (
-                  <div key={index} className="flex items-center justify-between py-2">
-                    <div className="flex items-center">
-                      <div className={`w-2 h-2 rounded-full mr-3 ${
-                        activity.type === 'stake' ? 'bg-[#FFC700]' : 'bg-green-400'
-                      }`}></div>
-                      <div>
-                        <div className="text-white text-sm">
-                          {activity.type === 'stake' ? 'Staked in' : 'Earned from'} {activity.artist}
+                  <div key={index} className="glass-card p-4 hover-glow">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center">
+                        <div className={`poker-chip w-8 h-8 mr-3 ${
+                          activity.type === 'stake' ? 'bg-[#FFC700]' : 'bg-green-400'
+                        }`}></div>
+                        <div>
+                          <div className="text-white text-sm font-royal">
+                            {activity.type === 'stake' ? 'Staked in' : 'Earned from'} {activity.artist}
+                          </div>
+                          <div className="text-gray-300 text-xs font-elegant">{activity.date}</div>
                         </div>
-                        <div className="text-gray-400 text-xs">{activity.date}</div>
                       </div>
-                    </div>
-                    <div className={`text-sm font-medium ${
-                      activity.type === 'stake' ? 'text-[#FFC700]' : 'text-green-400'
-                    }`}>
-                      {activity.type === 'stake' ? '-' : '+'}{formatCurrency(activity.amount)}
+                      <div className={`text-sm font-royal font-medium ${
+                        activity.type === 'stake' ? 'text-[#FFC700]' : 'text-green-400'
+                      }`}>
+                        {activity.type === 'stake' ? '-' : '+'}{formatCurrency(activity.amount)}
+                      </div>
                     </div>
                   </div>
                 ))}

@@ -45,61 +45,65 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen parallax-container">
+      <div className="parallax-bg"></div>
+
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#1E293B] via-[#1E293B] to-[#0F172A] py-20 sm:py-32">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden py-20 sm:py-32">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <div className="text-center">
-            <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6">
-              Invest in Music,
-              <span className="text-[#FFC700] block">Earn Royalties</span>
+            <h1 className="text-5xl sm:text-7xl font-royal-bold text-luxury mb-8">
+              Royal Music Investment,
+              <span className="text-royal-gold block">Earn Noble Royalties</span>
             </h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              Stake in artists&apos; NFTs to gain fractional ownership of their music royalties.
-              A decentralized platform built on Avalanche blockchain for transparent music investment.
+            <p className="text-xl text-gray-200 mb-10 max-w-4xl mx-auto font-elegant leading-relaxed">
+              Stake in royal artists&apos; NFTs to gain fractional ownership of their music royalties.
+              A decentralized palace built on Avalanche blockchain for transparent music investment.
             </p>
+            <div className="royal-divider mb-10"></div>
 
             {/* Conditional content based on wallet connection */}
             {isConnected ? (
-              <div className="space-y-4">
-                <div className="bg-[#FFC700]/10 border border-[#FFC700]/30 rounded-lg p-4 max-w-md mx-auto mb-6">
-                  <div className="flex items-center justify-center space-x-2">
-                    <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                    <span className="text-[#FFC700] font-medium">Wallet Connected</span>
+              <div className="space-y-6">
+                <div className="glass-premium p-6 max-w-lg mx-auto mb-8 hover-glow">
+                  <div className="flex items-center justify-center space-x-3">
+                    <div className="poker-chip w-8 h-8 flex items-center justify-center">
+                      <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                    </div>
+                    <span className="text-royal-gold font-royal text-lg">Royal Wallet Connected</span>
                   </div>
-                  <p className="text-gray-300 text-sm mt-2 text-center">
+                  <p className="text-gray-200 text-sm mt-3 text-center font-elegant">
                     {address && `${address.slice(0, 6)}...${address.slice(-4)}`}
                   </p>
                 </div>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <div className="flex flex-col sm:flex-row gap-6 justify-center">
                   <Link
                     href="/dashboard"
-                    className="bg-[#FFC700] text-[#1E293B] px-8 py-3 rounded-lg font-semibold hover:bg-[#e6b300] transition-colors duration-200 flex items-center justify-center"
+                    className="btn-royal px-10 py-4 text-lg font-royal flex items-center justify-center hover-lift"
                   >
-                    Go to Dashboard
-                    <ArrowRightIcon className="w-5 h-5 ml-2" />
+                    Enter Royal Dashboard
+                    <ArrowRightIcon className="w-6 h-6 ml-3" />
                   </Link>
                   <Link
                     href="/artists"
-                    className="border border-[#FFC700] text-[#FFC700] px-8 py-3 rounded-lg font-semibold hover:bg-[#FFC700] hover:text-[#1E293B] transition-colors duration-200"
+                    className="btn-royal-outline px-10 py-4 text-lg font-royal hover-lift"
                   >
-                    Explore Artists
+                    Explore Royal Artists
                   </Link>
                 </div>
               </div>
             ) : (
-              <div className="space-y-6">
-                <div className="bg-[#FFC700]/5 border border-[#FFC700]/20 rounded-lg p-6 max-w-md mx-auto">
+              <div className="space-y-8">
+                <div className="glass-royal p-8 max-w-lg mx-auto hover-glow">
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-[#FFC700]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <svg className="w-6 h-6 text-[#FFC700]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="poker-chip w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                      <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                       </svg>
                     </div>
-                    <h3 className="text-lg font-semibold text-white mb-2">Connect Your Wallet</h3>
-                    <p className="text-gray-400 text-sm mb-4">
-                      Connect your wallet to start investing in music royalties and accessing all platform features.
+                    <h3 className="text-2xl font-royal-bold text-royal-gold mb-4">Connect Your Royal Wallet</h3>
+                    <p className="text-gray-200 text-base mb-6 font-elegant leading-relaxed">
+                      Connect your wallet to start investing in royal music royalties and accessing all palace features.
                     </p>
                     <div className="flex justify-center">
                       <ConnectButton />
@@ -107,8 +111,8 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="text-center">
-                  <p className="text-gray-400 text-sm">
-                    Once connected, you&apos;ll have access to the dashboard, artist marketplace, and staking features.
+                  <p className="text-gray-300 font-elegant">
+                    Once connected, you&apos;ll have access to the royal dashboard, artist marketplace, and staking palace.
                   </p>
                 </div>
               </div>
@@ -118,40 +122,49 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-[#0F172A]">
+      <section className="py-20 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl font-bold text-[#FFC700] mb-2">{stat.value}</div>
-                <div className="text-gray-400">{stat.label}</div>
-              </div>
-            ))}
+          <div className="glass-premium p-10 hover-lift">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-royal-bold text-royal-gold mb-4">Royal Platform Statistics</h2>
+              <div className="royal-divider"></div>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {stats.map((stat, index) => (
+                <div key={index} className="text-center group">
+                  <div className="poker-chip w-20 h-20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <div className="text-2xl font-royal-bold text-black">{stat.value}</div>
+                  </div>
+                  <div className="text-gray-200 font-elegant text-lg">{stat.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-[#1E293B]">
+      <section className="py-24 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              How Royalty Works
+          <div className="text-center mb-20">
+            <h2 className="text-4xl sm:text-5xl font-royal-bold text-luxury mb-6">
+              How Royal Royalties Work
             </h2>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Our platform democratizes music investment through blockchain technology
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto font-elegant leading-relaxed">
+              Our royal platform democratizes music investment through blockchain technology and noble elegance
             </p>
+            <div className="royal-divider mt-8"></div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <div key={index} className="bg-[#0F172A] p-6 rounded-xl border border-[#FFC700]/20 hover:border-[#FFC700]/40 transition-colors duration-200">
-                  <div className="w-12 h-12 bg-[#FFC700]/10 rounded-lg flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-[#FFC700]" />
+                <div key={index} className="card-luxury p-8 hover-lift group">
+                  <div className="poker-chip w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="w-8 h-8 text-black" />
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-2">{feature.title}</h3>
-                  <p className="text-gray-400">{feature.description}</p>
+                  <h3 className="text-xl font-royal-bold text-royal-gold mb-4 group-hover:text-white transition-colors duration-300">{feature.title}</h3>
+                  <p className="text-gray-200 font-elegant leading-relaxed">{feature.description}</p>
                 </div>
               );
             })}

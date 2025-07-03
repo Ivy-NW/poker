@@ -48,7 +48,7 @@ export function ProtectedRoute({ children, fallback }: ProtectedRouteProps) {
           </div>
           <h2 className="text-2xl font-bold text-white mb-4">Wallet Required</h2>
           <p className="text-gray-300 mb-6">
-            Please connect your wallet to access this page. You'll be redirected to the home page to connect your wallet.
+            Please connect your wallet to access this page. You&apos;ll be redirected to the home page to connect your wallet.
           </p>
           <button
             onClick={() => router.push('/')}

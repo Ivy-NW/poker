@@ -139,26 +139,30 @@ const MarketplacePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#1E293B] py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-8 parallax-container">
+      <div className="parallax-bg"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white mb-2">NFT Marketplace</h1>
-          <p className="text-gray-400">Buy and sell fractional music royalty NFTs</p>
+        <div className="mb-8 text-center">
+          <h1 className="text-4xl font-royal-bold text-royal-gold mb-4 text-luxury">
+            Royal NFT Marketplace
+          </h1>
+          <p className="text-gray-300 font-elegant text-lg">Buy and sell fractional music royalty NFTs with royal elegance</p>
+          <div className="royal-divider"></div>
         </div>
 
         {/* Filters */}
-        <div className="bg-[#0F172A] rounded-xl p-6 mb-8 border border-[#FFC700]/20">
-          <div className="grid grid-cols-1 lg:grid-cols-6 gap-4">
+        <div className="glass-royal p-8 mb-8 hover-lift">
+          <div className="grid grid-cols-1 lg:grid-cols-6 gap-6">
             {/* Search */}
             <div className="lg:col-span-2 relative">
-              <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <MagnifyingGlassIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-[#FFC700]" />
               <input
                 type="text"
-                placeholder="Search NFTs, artists, or songs..."
+                placeholder="Search royal NFTs, artists, or songs..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 bg-[#1E293B] border border-[#FFC700]/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#FFC700]"
+                className="w-full pl-12 pr-4 py-4 glass-card text-white placeholder-gray-300 focus:outline-none focus:border-[#FFC700] transition-all duration-300 font-elegant text-lg"
               />
             </div>
 
@@ -167,13 +171,13 @@ const MarketplacePage = () => {
               <select
                 value={selectedGenre}
                 onChange={(e) => setSelectedGenre(e.target.value)}
-                className="appearance-none w-full bg-[#1E293B] border border-[#FFC700]/20 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-[#FFC700] pr-8"
+                className="appearance-none w-full glass-card px-4 py-4 text-white focus:outline-none focus:border-[#FFC700] pr-10 font-elegant"
               >
                 {genres.map(genre => (
-                  <option key={genre} value={genre}>{genre}</option>
+                  <option key={genre} value={genre} className="bg-[#1E293B]">{genre}</option>
                 ))}
               </select>
-              <FunnelIcon className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+              <FunnelIcon className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#FFC700] pointer-events-none" />
             </div>
 
             {/* Rarity Filter */}
@@ -181,13 +185,13 @@ const MarketplacePage = () => {
               <select
                 value={selectedRarity}
                 onChange={(e) => setSelectedRarity(e.target.value)}
-                className="appearance-none w-full bg-[#1E293B] border border-[#FFC700]/20 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-[#FFC700] pr-8"
+                className="appearance-none w-full glass-card px-4 py-4 text-white focus:outline-none focus:border-[#FFC700] pr-10 font-elegant"
               >
                 {rarities.map(rarity => (
-                  <option key={rarity} value={rarity}>{rarity}</option>
+                  <option key={rarity} value={rarity} className="bg-[#1E293B]">{rarity}</option>
                 ))}
               </select>
-              <FunnelIcon className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+              <FunnelIcon className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#FFC700] pointer-events-none" />
             </div>
 
             {/* Sort */}
@@ -195,59 +199,59 @@ const MarketplacePage = () => {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="appearance-none w-full bg-[#1E293B] border border-[#FFC700]/20 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-[#FFC700] pr-8"
+                className="appearance-none w-full glass-card px-4 py-4 text-white focus:outline-none focus:border-[#FFC700] pr-10 font-elegant"
               >
                 {sortOptions.map(option => (
-                  <option key={option.value} value={option.value}>{option.label}</option>
+                  <option key={option.value} value={option.value} className="bg-[#1E293B]">{option.label}</option>
                 ))}
               </select>
-              <FunnelIcon className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+              <FunnelIcon className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#FFC700] pointer-events-none" />
             </div>
 
             {/* Auction Toggle */}
             <div className="flex items-center">
-              <label className="flex items-center cursor-pointer">
+              <label className="flex items-center cursor-pointer glass-card px-4 py-3 rounded-lg hover-glow">
                 <input
                   type="checkbox"
                   checked={showAuctionsOnly}
                   onChange={(e) => setShowAuctionsOnly(e.target.checked)}
                   className="sr-only"
                 />
-                <div className={`relative w-12 h-6 rounded-full transition-colors duration-200 ${
+                <div className={`relative w-14 h-7 rounded-full transition-colors duration-300 ${
                   showAuctionsOnly ? 'bg-[#FFC700]' : 'bg-gray-600'
                 }`}>
-                  <div className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform duration-200 ${
-                    showAuctionsOnly ? 'transform translate-x-6' : ''
+                  <div className={`absolute top-1 left-1 w-5 h-5 bg-white rounded-full transition-transform duration-300 ${
+                    showAuctionsOnly ? 'transform translate-x-7' : ''
                   }`}></div>
                 </div>
-                <span className="ml-3 text-white text-sm">Auctions Only</span>
+                <span className="ml-3 text-white font-elegant">Royal Auctions Only</span>
               </label>
             </div>
           </div>
         </div>
 
         {/* NFT Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {filteredNFTs.map((nft) => (
-            <div key={nft.id} className="bg-[#0F172A] rounded-xl overflow-hidden border border-[#FFC700]/20 hover:border-[#FFC700]/40 transition-all duration-200 hover:transform hover:scale-105">
+            <div key={nft.id} className="card-luxury overflow-hidden hover-lift cursor-pointer group">
               {/* NFT Image */}
-              <div className="relative h-48 bg-gradient-to-br from-[#FFC700]/20 to-[#818CF8]/20">
+              <div className="relative h-56 bg-gradient-to-br from-[#FFC700]/30 to-[#000000]/80 parallax-bg">
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 bg-[#FFC700] rounded-full flex items-center justify-center">
-                    <PlayIcon className="w-8 h-8 text-[#1E293B]" />
+                  <div className="poker-chip w-20 h-20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <PlayIcon className="w-10 h-10 text-black" />
                   </div>
                 </div>
-                
+
                 {/* Badges */}
-                <div className="absolute top-3 left-3">
-                  <span className={`px-2 py-1 rounded-full text-xs font-medium ${getRarityColor(nft.rarity)}`}>
+                <div className="absolute top-4 left-4">
+                  <span className={`glass-card px-3 py-2 text-sm font-royal ${getRarityColor(nft.rarity)}`}>
                     {nft.rarity}
                   </span>
                 </div>
-                
+
                 {nft.isAuction && (
-                  <div className="absolute top-3 right-3 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-medium">
-                    Auction
+                  <div className="absolute top-4 right-4 bg-gradient-to-r from-red-500 to-red-600 text-white px-3 py-2 rounded-lg text-sm font-royal shadow-lg">
+                    Royal Auction
                   </div>
                 )}
 

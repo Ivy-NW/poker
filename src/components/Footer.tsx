@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { MusicalNoteIcon } from '@heroicons/react/24/solid';
+import Image from 'next/image';
 
 const Footer = () => {
   const footerLinks = {
@@ -24,35 +24,41 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#1E293B] border-t border-[#FFC700]/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <footer className="glass-card rounded-container mx-4 mb-4">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo and Description */}
           <div className="col-span-1 md:col-span-1">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-[#FFC700] rounded-lg flex items-center justify-center">
-                <MusicalNoteIcon className="w-5 h-5 text-[#1E293B]" />
+            <div className="flex items-center space-x-3 mb-6">
+              <div className="w-10 h-10 relative">
+                <Image
+                  src="/favicon.ico"
+                  alt="Royalty Logo"
+                  width={40}
+                  height={40}
+                  className="rounded-lg"
+                />
               </div>
-              <span className="text-xl font-bold text-[#FFC700]">Royalty</span>
+              <span className="text-2xl font-royal font-bold text-[#FFC700] text-shimmer">Royalty</span>
             </div>
-            <p className="text-gray-400 text-sm mb-4">
-              Democratizing music investment through blockchain technology. 
-              Stake in artists' NFTs and earn music royalties.
+            <p className="text-gray-400 text-sm mb-6 leading-relaxed">
+              Democratizing music investment through blockchain technology.
+              Stake in artists&apos; NFTs and earn music royalties.
             </p>
-            <div className="text-xs text-gray-500">
+            <div className="text-xs text-gray-500 glass-card px-3 py-2 rounded-lg inline-block">
               Built on Avalanche
             </div>
           </div>
 
           {/* Platform Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Platform</h3>
-            <ul className="space-y-2">
+            <h3 className="font-royal font-semibold mb-6 text-[#FFC700]">Platform</h3>
+            <ul className="space-y-3">
               {footerLinks.platform.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-[#FFC700] text-sm transition-colors duration-200"
+                    className="text-gray-400 hover:text-[#FFC700] text-sm transition-all duration-300 hover-lift block py-1"
                   >
                     {link.name}
                   </Link>
@@ -63,13 +69,13 @@ const Footer = () => {
 
           {/* Support Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Support</h3>
-            <ul className="space-y-2">
+            <h3 className="font-royal font-semibold mb-6 text-[#FFC700]">Support</h3>
+            <ul className="space-y-3">
               {footerLinks.support.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-[#FFC700] text-sm transition-colors duration-200"
+                    className="text-gray-400 hover:text-[#FFC700] text-sm transition-all duration-300 hover-lift block py-1"
                   >
                     {link.name}
                   </Link>
@@ -80,13 +86,13 @@ const Footer = () => {
 
           {/* Legal Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Legal</h3>
-            <ul className="space-y-2">
+            <h3 className="font-royal font-semibold mb-6 text-[#FFC700]">Legal</h3>
+            <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-[#FFC700] text-sm transition-colors duration-200"
+                    className="text-gray-400 hover:text-[#FFC700] text-sm transition-all duration-300 hover-lift block py-1"
                   >
                     {link.name}
                   </Link>
@@ -97,15 +103,15 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-8 pt-8 border-t border-[#FFC700]/20">
+        <div className="mt-12 pt-8 border-t border-[#FFC700]/20">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-gray-400 text-sm">
+            <div className="text-gray-400 text-sm font-elegant">
               © 2024 Royalty Platform. All rights reserved.
             </div>
-            <div className="flex space-x-6 mt-4 md:mt-0">
+            <div className="flex space-x-6 mt-6 md:mt-0">
               <a
                 href="#"
-                className="text-gray-400 hover:text-[#FFC700] transition-colors duration-200"
+                className="text-gray-400 hover:text-[#FFC700] transition-all duration-300 hover-glow p-2 rounded-lg"
                 aria-label="Twitter"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -114,7 +120,7 @@ const Footer = () => {
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-[#FFC700] transition-colors duration-200"
+                className="text-gray-400 hover:text-[#FFC700] transition-all duration-300 hover-glow p-2 rounded-lg"
                 aria-label="Discord"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -123,7 +129,7 @@ const Footer = () => {
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-[#FFC700] transition-colors duration-200"
+                className="text-gray-400 hover:text-[#FFC700] transition-all duration-300 hover-glow p-2 rounded-lg"
                 aria-label="GitHub"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

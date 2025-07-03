@@ -1,14 +1,28 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Roboto, Cinzel, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { ClientWalletWrapper } from "@/components/ClientWalletWrapper";
+import { ThemeProvider } from "@/contexts/ThemeContext";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
   subsets: ["latin"],
   variable: "--font-roboto",
+});
+
+const cinzel = Cinzel({
+  weight: ['400', '500', '600', '700'],
+  subsets: ["latin"],
+  variable: "--font-royal",
+});
+
+const playfair = Playfair_Display({
+  weight: ['400', '500', '600', '700'],
+  subsets: ["latin"],
+  variable: "--font-elegant",
 });
 
 export const metadata: Metadata = {
@@ -24,16 +38,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable} font-sans antialiased min-h-screen bg-[#1E293B] text-white`}>
-        <ClientWalletWrapper>
-          <div className="flex flex-col min-h-screen">
-            <Navigation />
-            <main className="flex-1">
-              {children}
-            </main>
-            <Footer />
-          </div>
-        </ClientWalletWrapper>
+      <body className={`${roboto.variable} ${cinzel.variable} ${playfair.variable} font-sans antialiased min-h-screen`}>
+        <ThemeProvider>
+          <AnimatedBackground />
+          <ClientWalletWrapper>
+            <div className="flex flex-col min-h-screen relative z-10">
+              <Navigation />
+              <main className="flex-1">
+                {children}
+              </main>
+              <Footer />
+            </div>
+          </ClientWalletWrapper>
+        </ThemeProvider>
       </body>
     </html>
   );

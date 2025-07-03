@@ -99,39 +99,43 @@ const StakingPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#1E293B] py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-8 parallax-container">
+      <div className="parallax-bg"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white mb-2">Staking Dashboard</h1>
-          <p className="text-gray-400">Stake your tokens to earn music royalties</p>
+        <div className="mb-8 text-center">
+          <h1 className="text-4xl font-royal-bold text-royal-gold mb-4 text-luxury">
+            Royal Staking Palace
+          </h1>
+          <p className="text-gray-300 font-elegant text-lg">Stake your royal tokens to earn music royalties</p>
+          <div className="royal-divider"></div>
         </div>
 
         {/* Staking Overview */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-[#0F172A] rounded-xl p-6 border border-[#FFC700]/20">
-            <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-[#FFC700]/10 rounded-lg flex items-center justify-center">
-                <CurrencyDollarIcon className="w-6 h-6 text-[#FFC700]" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+          <div className="glass-premium p-8 hover-lift">
+            <div className="flex items-center justify-between mb-6">
+              <div className="poker-chip w-16 h-16 flex items-center justify-center">
+                <CurrencyDollarIcon className="w-8 h-8 text-black" />
               </div>
               <div className="text-right">
-                <div className="text-2xl font-bold text-white">{formatCurrency(totalUserStaked)}</div>
-                <div className="text-sm text-gray-400">Total Staked</div>
+                <div className="text-3xl font-royal-bold text-royal-gold">{formatCurrency(totalUserStaked)}</div>
+                <div className="text-sm text-gray-300 font-elegant">Total Royal Stakes</div>
               </div>
             </div>
-            <div className="text-sm text-gray-400">
-              Across {mockStakingPools.filter(pool => pool.userStaked > 0).length} pools
+            <div className="text-sm text-gray-300 font-elegant">
+              Across {mockStakingPools.filter(pool => pool.userStaked > 0).length} royal pools
             </div>
           </div>
 
-          <div className="bg-[#0F172A] rounded-xl p-6 border border-[#FFC700]/20">
-            <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-[#FFC700]/10 rounded-lg flex items-center justify-center">
-                <ClockIcon className="w-6 h-6 text-[#FFC700]" />
+          <div className="glass-premium p-8 hover-lift">
+            <div className="flex items-center justify-between mb-6">
+              <div className="poker-chip w-16 h-16 flex items-center justify-center">
+                <ClockIcon className="w-8 h-8 text-black" />
               </div>
               <div className="text-right">
-                <div className="text-2xl font-bold text-white">{formatCurrency(totalPendingRewards)}</div>
-                <div className="text-sm text-gray-400">Pending Rewards</div>
+                <div className="text-3xl font-royal-bold text-royal-gold">{formatCurrency(totalPendingRewards)}</div>
+                <div className="text-sm text-gray-300 font-elegant">Pending Royal Rewards</div>
               </div>
             </div>
             <div className="text-sm text-green-400">

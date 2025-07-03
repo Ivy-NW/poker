@@ -66,28 +66,29 @@ const ArtistDetailPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#1E293B] py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-8 parallax-container">
+      <div className="parallax-bg"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Back Button */}
         <Link
           href="/artists"
-          className="inline-flex items-center text-[#FFC700] hover:text-[#e6b300] transition-colors duration-200 mb-6"
+          className="inline-flex items-center btn-royal-outline px-4 py-2 mb-8 font-royal"
         >
           <ArrowLeftIcon className="w-5 h-5 mr-2" />
-          Back to Artists
+          Back to Royal Artists
         </Link>
 
         {/* Artist Header */}
-        <div className="bg-[#0F172A] rounded-xl p-8 mb-8">
-          <div className="flex flex-col lg:flex-row gap-8">
+        <div className="glass-royal p-10 mb-8 hover-lift">
+          <div className="flex flex-col lg:flex-row gap-10">
             {/* Artist Image */}
             <div className="flex-shrink-0">
-              <div className="w-64 h-64 bg-gradient-to-br from-[#FFC700]/20 to-[#818CF8]/20 rounded-xl flex items-center justify-center relative">
-                <div className="w-24 h-24 bg-[#FFC700] rounded-full flex items-center justify-center">
+              <div className="w-80 h-80 bg-gradient-to-br from-[#FFC700]/30 to-[#000000]/80 rounded-xl flex items-center justify-center relative parallax-bg overflow-hidden">
+                <div className="poker-chip w-32 h-32 flex items-center justify-center hover:scale-110 transition-transform duration-300">
                   {isPlaying ? (
-                    <PauseIcon className="w-12 h-12 text-[#1E293B]" />
+                    <PauseIcon className="w-16 h-16 text-black" />
                   ) : (
-                    <PlayIcon className="w-12 h-12 text-[#1E293B]" />
+                    <PlayIcon className="w-16 h-16 text-black" />
                   )}
                 </div>
                 <button
@@ -99,31 +100,31 @@ const ArtistDetailPage = () => {
 
             {/* Artist Info */}
             <div className="flex-grow">
-              <div className="flex items-start justify-between mb-4">
+              <div className="flex items-start justify-between mb-6">
                 <div>
-                  <h1 className="text-4xl font-bold text-white mb-2">{mockArtist.name}</h1>
-                  <p className="text-xl text-gray-300 mb-4">{mockArtist.genre} (ID: {artistId})</p>
+                  <h1 className="text-5xl font-royal-bold text-royal-gold mb-3 text-luxury">{mockArtist.name}</h1>
+                  <p className="text-xl text-gray-200 mb-4 font-elegant">{mockArtist.genre} (ID: {artistId})</p>
                 </div>
-                <div className={`px-3 py-1 rounded-full text-sm font-medium border ${getRiskColor(mockArtist.riskLevel)}`}>
+                <div className={`glass-premium px-4 py-2 text-sm font-royal ${getRiskColor(mockArtist.riskLevel)}`}>
                   {mockArtist.riskLevel} Risk
                 </div>
               </div>
 
               {/* Rating */}
-              <div className="flex items-center mb-4">
-                <div className="flex items-center mr-4">
+              <div className="flex items-center mb-6">
+                <div className="flex items-center mr-6">
                   {[...Array(5)].map((_, i) => (
                     <StarIcon
                       key={i}
-                      className={`w-5 h-5 ${i < Math.floor(mockArtist.rating) ? 'text-[#FFC700]' : 'text-gray-600'}`}
+                      className={`w-6 h-6 ${i < Math.floor(mockArtist.rating) ? 'text-[#FFC700]' : 'text-gray-600'}`}
                     />
                   ))}
-                  <span className="text-white ml-2 font-semibold">{mockArtist.rating}</span>
+                  <span className="text-white ml-3 font-royal font-semibold text-lg">{mockArtist.rating}</span>
                 </div>
               </div>
 
               {/* Description */}
-              <p className="text-gray-300 mb-6">{mockArtist.description}</p>
+              <p className="text-gray-200 mb-8 font-elegant text-lg leading-relaxed">{mockArtist.description}</p>
 
               {/* Key Stats */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
