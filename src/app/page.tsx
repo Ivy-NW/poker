@@ -5,6 +5,7 @@ import { ArrowRightIcon, MusicalNoteIcon, ChartBarIcon, ShieldCheckIcon } from '
 import { CurrencyDollarIcon } from '@heroicons/react/24/solid';
 import dynamic from 'next/dynamic';
 import { useWalletAuth } from '@/contexts/WalletAuthContext';
+import {MintArtistNFTForm} from '@/components/MintArtistNFTForm';
 
 const ConnectButton = dynamic(
   () => import('@rainbow-me/rainbowkit').then((mod) => ({ default: mod.ConnectButton })),

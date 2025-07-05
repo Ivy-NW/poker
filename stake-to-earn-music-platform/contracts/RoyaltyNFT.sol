@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-import "lib/openzeppelin-contracts/contracts/token/ERC1155/ERC1155.sol";
-import "lib/openzeppelin-contracts/contracts/access/Ownable.sol";
-import "lib/openzeppelin-contracts/contracts/utils/Strings.sol";
+import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
 
 contract RoyaltyNFT is ERC1155, Ownable {
     using Strings for uint256;
@@ -17,8 +17,6 @@ contract RoyaltyNFT is ERC1155, Ownable {
         string description;
     }
 
-    Artist[] public appendArtists;
-
     mapping(uint256 => Artist) public artists;
     mapping(uint256 => string) private _tokenURIs;
     mapping(address => uint256) public artistRatings;
@@ -26,7 +24,7 @@ contract RoyaltyNFT is ERC1155, Ownable {
 
     event ArtistNFTMinted(address indexed artist, uint256 indexed tokenId, uint256 supply);
 
-    constructor() ERC1155("") Ownable(msg.sender){
+    constructor() ERC1155("") {
         tokenCounter = 1;
     }
 
@@ -51,8 +49,6 @@ contract RoyaltyNFT is ERC1155, Ownable {
             description: description
         });
 
-        appendArtists.push(artists[tokenId]);
-
         artistRatings[artist] = 250;
 
         emit ArtistNFTMinted(artist, tokenId, initialSupply);
@@ -74,9 +70,5 @@ contract RoyaltyNFT is ERC1155, Ownable {
 
     function getArtistInfo(uint256 tokenId) external view returns (Artist memory) {
         return artists[tokenId];
-    }
-
-    function getAllArtists() external view returns (Artist[] memory testUsers) {
-        return appendArtists;
     }
 }

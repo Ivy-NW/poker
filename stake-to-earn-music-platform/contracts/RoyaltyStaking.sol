@@ -1,11 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-import "lib/openzeppelin-contracts/contracts/access/Ownable.sol";
-import "lib/openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "./RoyaltyNFT.sol";
 
 contract RoyaltyStaking is Ownable, ReentrancyGuard {
+    using SafeMath for uint256;
 
     RoyaltyNFT public nftContract;
 
@@ -26,7 +28,7 @@ contract RoyaltyStaking is Ownable, ReentrancyGuard {
     event RoyaltyDistributed(uint256 indexed tokenId, uint256 amount);
     event RoyaltiesClaimed(address indexed user, uint256 indexed tokenId, uint256 amount);
 
-    constructor(address _nftAddress) Ownable(msg.sender) {
+    constructor(address _nftAddress) {
         nftContract = RoyaltyNFT(_nftAddress);
     }
 
@@ -43,7 +45,7 @@ contract RoyaltyStaking is Ownable, ReentrancyGuard {
             lastClaimTimestamp: block.timestamp
         }));
 
-        totalStakedPerToken[tokenId] += amount; // Fixed: changed from ++ to += amount
+        totalStakedPerToken[tokenId] = totalStakedPerToken[tokenId].add(amount);
         emit Staked(msg.sender, tokenId, amount);
     }
 
@@ -61,7 +63,7 @@ contract RoyaltyStaking is Ownable, ReentrancyGuard {
         userStakes[msg.sender].pop();
 
         nftContract.safeTransferFrom(address(this), msg.sender, tokenId, amount, "");
-        totalStakedPerToken[tokenId] -= amount; // Fixed: changed from -- to -= amount
+        totalStakedPerToken[tokenId] = totalStakedPerToken[tokenId].sub(amount);
 
         emit Unstaked(msg.sender, tokenId, amount);
     }
@@ -70,8 +72,8 @@ contract RoyaltyStaking is Ownable, ReentrancyGuard {
         require(msg.value > 0, "No royalties to distribute");
         require(totalStakedPerToken[tokenId] > 0, "No stakes for this token");
 
-        royaltyPool[tokenId] += msg.value; // Fixed: changed from .add() to +=
-        totalRoyaltiesDistributed[tokenId] += msg.value; // Fixed: changed from .add() to +=
+        royaltyPool[tokenId] = royaltyPool[tokenId].add(msg.value);
+        totalRoyaltiesDistributed[tokenId] = totalRoyaltiesDistributed[tokenId].add(msg.value);
 
         emit RoyaltyDistributed(tokenId, msg.value);
     }
@@ -90,10 +92,10 @@ contract RoyaltyStaking is Ownable, ReentrancyGuard {
             return;
         }
 
-        uint256 userShare = (userStake.amount * royaltyPool[tokenId]) / totalStakedPerToken[tokenId]; 
+        uint256 userShare = userStake.amount.mul(royaltyPool[tokenId]).div(totalStakedPerToken[tokenId]);
 
         if (userShare > 0) {
-            royaltyPool[tokenId] -= userShare; 
+            royaltyPool[tokenId] = royaltyPool[tokenId].sub(userShare);
             userStake.lastClaimTimestamp = block.timestamp;
 
             payable(msg.sender).transfer(userShare);
