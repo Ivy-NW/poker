@@ -1,0 +1,565 @@
+@import "tailwindcss";
+
+:root {
+  /* Primary Colors */
+  --primary-gold: #FFC700;
+  --primary-dark: #000000;
+
+  /* Secondary Colors */
+  --secondary-white: #FFFFFF;
+  --secondary-blue: #818CF8;
+
+  /* Neutral Colors */
+  --neutral-light-gray: #F3F4F6;
+  --neutral-very-light-gray: #E2E8F0;
+  --neutral-dark-gray: #374151;
+  --neutral-darker-gray: #1F2937;
+
+  /* Theme Variables - Light Mode */
+  --background: var(--secondary-white);
+  --foreground: var(--primary-dark);
+  --accent: var(--primary-gold);
+  --card-background: rgba(255, 255, 255, 0.8);
+  --glass-background: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 199, 0, 0.2);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --glow-color: rgba(255, 199, 0, 0.3);
+}
+
+[data-theme="dark"] {
+  /* Theme Variables - Dark Mode */
+  --background: var(--primary-dark);
+  --foreground: var(--secondary-white);
+  --accent: var(--primary-gold);
+  --card-background: rgba(0, 0, 0, 0.8);
+  --glass-background: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 199, 0, 0.3);
+  --shadow-color: rgba(255, 199, 0, 0.1);
+  --glow-color: rgba(255, 199, 0, 0.4);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* Royal Typography Classes */
+.font-royal {
+  font-family: var(--font-royal);
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+.font-elegant {
+  font-family: var(--font-elegant);
+  font-weight: 500;
+  letter-spacing: 0.015em;
+}
+
+.font-royal-bold {
+  font-family: var(--font-royal);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.font-elegant-light {
+  font-family: var(--font-elegant);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* Royal Text Effects */
+.text-royal-gold {
+  background: linear-gradient(135deg, #FFC700 0%, #FFD700 50%, #FFC700 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  animation: royalShimmer 3s ease-in-out infinite;
+}
+
+@keyframes royalShimmer {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.text-luxury {
+  text-shadow: 0 0 10px rgba(255, 199, 0, 0.3), 0 0 20px rgba(255, 199, 0, 0.2);
+}
+
+/* Glassmorphism Effects */
+.glass-card {
+  background: var(--glass-background);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px var(--shadow-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 199, 0, 0.05) 0%, transparent 50%, rgba(255, 199, 0, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.glass-card:hover::before {
+  opacity: 1;
+}
+
+.glass-navbar {
+  background: var(--glass-background);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+}
+
+/* Enhanced Glass Effects */
+.glass-premium {
+  background: linear-gradient(135deg, var(--glass-background) 0%, rgba(255, 199, 0, 0.08) 100%);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 2px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: 0 12px 40px var(--shadow-color), inset 0 1px 0 rgba(255, 199, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-premium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 199, 0, 0.15) 50%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.glass-premium:hover::before {
+  opacity: 1;
+}
+
+/* Liquid Glass Effects */
+.liquid-glass {
+  background: linear-gradient(135deg, var(--glass-background) 0%, rgba(255, 199, 0, 0.1) 100%);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 199, 0, 0.1) 50%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.liquid-glass:hover::before {
+  opacity: 1;
+}
+
+/* Royal Glass Card */
+.glass-royal {
+  background: linear-gradient(135deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(255, 199, 0, 0.1) 25%,
+    rgba(0, 0, 0, 0.8) 50%,
+    rgba(255, 199, 0, 0.1) 75%,
+    rgba(0, 0, 0, 0.7) 100%);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 2px solid rgba(255, 199, 0, 0.3);
+  border-radius: 20px;
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.5),
+    0 5px 15px rgba(255, 199, 0, 0.2),
+    inset 0 1px 0 rgba(255, 199, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glow Effects */
+.glow-gold {
+  box-shadow: 0 0 20px var(--glow-color);
+}
+
+.glow-gold-hover:hover {
+  box-shadow: 0 0 30px var(--glow-color);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Hover Effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px var(--shadow-color);
+}
+
+.hover-glow {
+  transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px var(--glow-color);
+  transform: scale(1.02);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-gold);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e6b300;
+}
+
+/* Animated Background */
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.floating-blob {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  animation: float 20s infinite linear;
+  background: linear-gradient(45deg, var(--primary-gold), rgba(255, 199, 0, 0.3));
+}
+
+.floating-blob:nth-child(1) {
+  width: 80px;
+  height: 80px;
+  left: 10%;
+  animation-duration: 25s;
+  animation-delay: 0s;
+}
+
+.floating-blob:nth-child(2) {
+  width: 120px;
+  height: 120px;
+  left: 20%;
+  animation-duration: 30s;
+  animation-delay: 5s;
+}
+
+.floating-blob:nth-child(3) {
+  width: 60px;
+  height: 60px;
+  left: 70%;
+  animation-duration: 35s;
+  animation-delay: 10s;
+}
+
+.floating-blob:nth-child(4) {
+  width: 100px;
+  height: 100px;
+  left: 80%;
+  animation-duration: 28s;
+  animation-delay: 15s;
+}
+
+.floating-blob:nth-child(5) {
+  width: 90px;
+  height: 90px;
+  left: 50%;
+  animation-duration: 32s;
+  animation-delay: 8s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+  }
+}
+
+/* Parallax Effects */
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-element {
+  transition: transform 0.1s ease-out;
+}
+
+/* Enhanced Parallax */
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120%;
+  height: 120%;
+  background: linear-gradient(45deg,
+    rgba(255, 199, 0, 0.05) 0%,
+    transparent 25%,
+    rgba(255, 199, 0, 0.03) 50%,
+    transparent 75%,
+    rgba(255, 199, 0, 0.05) 100%);
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.parallax-slow {
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.2s ease-out;
+}
+
+.parallax-medium {
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.15s ease-out;
+}
+
+.parallax-fast {
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.1s ease-out;
+}
+
+/* Button Animations */
+.btn-animate {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-animate::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 199, 0, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-animate:hover::before {
+  left: 100%;
+}
+
+/* Royal Button Styles */
+.btn-royal {
+  background: linear-gradient(135deg, #FFC700 0%, #FFD700 50%, #FFC700 100%);
+  border: 2px solid rgba(255, 199, 0, 0.3);
+  border-radius: 12px;
+  color: #000000;
+  font-family: var(--font-royal);
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  padding: 12px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 199, 0, 0.3);
+}
+
+.btn-royal:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 199, 0, 0.4);
+  border-color: rgba(255, 199, 0, 0.5);
+}
+
+.btn-royal-outline {
+  background: transparent;
+  border: 2px solid #FFC700;
+  border-radius: 12px;
+  color: #FFC700;
+  font-family: var(--font-royal);
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  padding: 12px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-royal-outline:hover {
+  background: #FFC700;
+  color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 199, 0, 0.4);
+}
+
+/* Card Animations */
+.card-entrance {
+  animation: cardEntrance 0.6s ease-out;
+}
+
+@keyframes cardEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Text Animations */
+.text-shimmer {
+  background: linear-gradient(90deg, var(--foreground) 25%, var(--primary-gold) 50%, var(--foreground) 75%);
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Rounded Containers */
+.rounded-container {
+  border-radius: 20px;
+  margin: 16px;
+  padding: 20px;
+}
+
+/* Theme Toggle Animation */
+.theme-toggle {
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(180deg);
+}
+
+/* Luxury Card Effects */
+.card-luxury {
+  background: linear-gradient(135deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(255, 199, 0, 0.1) 25%,
+    rgba(0, 0, 0, 0.9) 50%,
+    rgba(255, 199, 0, 0.1) 75%,
+    rgba(0, 0, 0, 0.8) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 199, 0, 0.3);
+  border-radius: 16px;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    0 2px 10px rgba(255, 199, 0, 0.2),
+    inset 0 1px 0 rgba(255, 199, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card-luxury:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.6),
+    0 5px 20px rgba(255, 199, 0, 0.3),
+    inset 0 1px 0 rgba(255, 199, 0, 0.3);
+  border-color: rgba(255, 199, 0, 0.5);
+}
+
+/* Poker Chip Effect */
+.poker-chip {
+  position: relative;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FFC700 0%, #FFD700 50%, #FFC700 100%);
+  border: 3px solid rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 2px #FFC700,
+    0 0 0 4px rgba(0, 0, 0, 0.2),
+    0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.poker-chip::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Royal Divider */
+.royal-divider {
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255, 199, 0, 0.3) 25%,
+    rgba(255, 199, 0, 0.8) 50%,
+    rgba(255, 199, 0, 0.3) 75%,
+    transparent 100%);
+  margin: 2rem 0;
+  position: relative;
+}
+
+.royal-divider::before {
+  content: '♦';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--background);
+  color: #FFC700;
+  padding: 0 1rem;
+  font-size: 1.2rem;
+}
