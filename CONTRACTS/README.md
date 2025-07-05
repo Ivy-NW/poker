@@ -48,7 +48,7 @@ $ anvil
 ### Deploy
 
 ```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+$ forge script script/DeployRoyaltySystem.s.sol:DeployRoyaltySystem --rpc-url https://api.avax-test.network/ext/bc/C/rpc --private-key 0x123456789
 ```
 
 ### Cast
