@@ -6,7 +6,7 @@ import { withAuth } from '../components/withAuth';
 import { ROYALTY_NFT_CONTRACT_ADDRESS, ROYALTY_NFT_CONTRACT_ABI } from '../app/ContractABI/RoyaltyNFT';
 
 export function MintArtistNFTForm() {
-  const { address, isConnected } = useAccount();
+  const {  isConnected } = useAccount();
   const { writeContract, data: hash, error, isPending } = useWriteContract();
   
   const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({
@@ -24,16 +24,7 @@ export function MintArtistNFTForm() {
 
   const [formError, setFormError] = useState('');
 
-  // Handle form input changes
-  // Define the form data interface
-  interface FormData {
-    artist: string;
-    initialSupply: string;
-    tokenURI: string;
-    investmentTarget: string;
-    name: string;
-    description: string;
-  }
+
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;

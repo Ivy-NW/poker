@@ -1,12 +1,12 @@
 "use client";
 import React, { useState } from 'react';
 import { useAccount, useReadContract } from 'wagmi';
-import { parseEther, isAddress, formatEther } from 'viem';
+import {  formatEther } from 'viem';
 import { withAuth } from '../components/withAuth';
 import { ROYALTY_NFT_CONTRACT_ABI, ROYALTY_NFT_CONTRACT_ADDRESS } from "@/app/ContractABI/RoyaltyNFT";
 
 function ViewArtistsComponent() {
-    const { address, isConnected } = useAccount();
+    const {  isConnected } = useAccount();
     const [tokenId, setTokenId] = useState('');
     const [searchTokenId, setSearchTokenId] = useState('');
 
