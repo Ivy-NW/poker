@@ -22,28 +22,29 @@ export function WalletProviders({ children }: WalletProvidersProps) {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return <>{children}</>;
-  }
-
+  // Always provide the WagmiProvider context, but conditionally render RainbowKit
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider
-          theme={darkTheme({
-            accentColor: '#FFC700',
-            accentColorForeground: '#1E293B',
-            borderRadius: 'medium',
-            fontStack: 'system',
-            overlayBlur: 'small',
-          })}
-          appInfo={{
-            appName: 'Royalty',
-            learnMoreUrl: 'https://rainbowkit.com',
-          }}
-        >
-          {children}
-        </RainbowKitProvider>
+        {mounted ? (
+          <RainbowKitProvider
+            theme={darkTheme({
+              accentColor: '#FFC700',
+              accentColorForeground: '#1E293B',
+              borderRadius: 'medium',
+              fontStack: 'system',
+              overlayBlur: 'small',
+            })}
+            appInfo={{
+              appName: 'Royalty',
+              learnMoreUrl: 'https://rainbowkit.com',
+            }}
+          >
+            {children}
+          </RainbowKitProvider>
+        ) : (
+          children
+        )}
       </QueryClientProvider>
     </WagmiProvider>
   );
